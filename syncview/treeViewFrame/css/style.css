@@ -1,0 +1,28 @@
+@import "reset.css";
+
+body {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#tree {
+  width: 20em;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-left: 10px;
+}
+
+#resizer {
+  background-color: #ccc;
+  width: 5px;
+  height: 100vh;
+}
+
+#fframe {
+  flex: 1 1 0%;
+  height: 100vh;
+}

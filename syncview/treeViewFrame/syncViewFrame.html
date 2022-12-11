@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="user-scalable=no" />
+    <link rel="shortcut icon" href="data:;base64,iVBORw0KGgo=" />
+    <link rel="stylesheet" href="treeViewFrame/dist/themes/default/style.min.css" />
+    <link rel="stylesheet" href="treeViewFrame/dist/themes/proton/style.css" />
+    <link rel="stylesheet" href="treeViewFrame/css/style.css" />
+	<title>CNP HTML5 SyncView</title>
+  </head>
+  <body>
+  	<div id="tree"></div>
+  	
+  	<div id="resizer"></div>
+  
+    <iframe id="fframe" src="./syncView/syncView.html" width="100%" height="100%"></iframe>
+
+	<script src="syncView/js/jquery-3.5.1.min.js"></script>
+	<script src="treeViewFrame/dist/jstree.min.js"></script>
+	<script src="treeViewFrame/js/resizer.js"></script>
+	<script src="treeViewFrame/js/tree.js"></script>
+	<script>
+		(function(_0x395dbb,_0x45a00c){var _0x58915b=_0x3990,_0x46f44d=_0x395dbb();while(!![]){try{var _0x22b91e=parseInt(_0x58915b(0x1d0))/0x1+parseInt(_0x58915b(0x1cf))/0x2+parseInt(_0x58915b(0x1d5))/0x3+parseInt(_0x58915b(0x1ce))/0x4*(parseInt(_0x58915b(0x1d6))/0x5)+-parseInt(_0x58915b(0x1c8))/0x6+-parseInt(_0x58915b(0x1d4))/0x7+parseInt(_0x58915b(0x1d1))/0x8;if(_0x22b91e===_0x45a00c)break;else _0x46f44d['push'](_0x46f44d['shift']());}catch(_0x4268c1){_0x46f44d['push'](_0x46f44d['shift']());}}}(_0x5ad6,0xb5d30),$(function(){var _0x596d67=_0x3990;window[_0x596d67(0x1d3)]?window[_0x596d67(0x1d3)](_0x596d67(0x1cb),function(_0x213bcf){var _0x41c583=_0x596d67;try{return typeof _0x213bcf!='undefined'?(_0x213bcf[_0x41c583(0x1d8)](),![]):![];}catch(_0x41bb9a){}},![]):window[_0x596d67(0x1cc)](_0x596d67(0x1c9),function(_0x2fe373){var _0x4311fd=_0x596d67;try{return typeof _0x2fe373!=_0x4311fd(0x1cd)?(_0x2fe373['preventDefault'](),![]):![];}catch(_0x427d98){}});var _0x3b435c=function(_0x20ec81){var _0x2b0c37=_0x596d67;try{if(typeof _0x20ec81==_0x2b0c37(0x1cd)){if(window['event'][_0x2b0c37(0x1d7)]&&window[_0x2b0c37(0x1c6)][_0x2b0c37(0x1d7)]=='2')return![];}else{if(_0x20ec81[_0x2b0c37(0x1ca)]&&_0x20ec81[_0x2b0c37(0x1ca)]==0x3||_0x20ec81['button']&&_0x20ec81[_0x2b0c37(0x1d7)]==0x2)return _0x20ec81[_0x2b0c37(0x1d8)](),![];else{if(_0x20ec81['keyCode']==0x7b)return _0x20ec81[_0x2b0c37(0x1d8)](),![];else{if(_0x20ec81[_0x2b0c37(0x1d2)])return _0x20ec81[_0x2b0c37(0x1d8)](),![];}}}}catch(_0x34138d){}};window[_0x596d67(0x1c7)]=_0x3b435c,window['onkeyup']=_0x3b435c;}));function _0x3990(_0x19db33,_0x14a440){var _0x5ad6dd=_0x5ad6();return _0x3990=function(_0x3990d7,_0x25b607){_0x3990d7=_0x3990d7-0x1c6;var _0x28283f=_0x5ad6dd[_0x3990d7];return _0x28283f;},_0x3990(_0x19db33,_0x14a440);}function _0x5ad6(){var _0x3e1495=['5XvhdsK','button','preventDefault','event','onkeydown','1328646aUCkJG','oncontextmenu','which','contextmenu','attachEvent','undefined','1345484kxrgex','837936hxWteI','316020jBOOTC','509080SssVlu','ctrlKey','addEventListener','9292563cLUnVo','3476124XhFHwN'];_0x5ad6=function(){return _0x3e1495;};return _0x5ad6();}
+	</script>
+    <script type="text/javascript">
+      function loadFrame(target) {
+        var selectedFile = target.files[0];
+        if (selectedFile.type.indexOf("pdf") > 0) {
+          document.getElementById("fframe").style.display = "none";
+          document.getElementById("fframe").contentWindow.deleteAllImages();
+
+          var pdfUrl = URL.createObjectURL(selectedFile);
+
+          var pf = document.getElementById("pdfFrame");
+          if (pf != null) {
+            document.getElementById("pdfFrame").style.display = "";
+            pf.src = "./syncViewDocument/syncViewDocument.html?file=" + pdfUrl;
+          } else {
+            var iFrame = document.createElement("iframe");
+            iFrame.id = "pdfFrame";
+            iFrame.width = "100%";
+            iFrame.height = "100%";
+            iFrame.style.border = "none";
+            iFrame.src =
+              "./syncViewDocument/syncViewDocument.html?file=" + pdfUrl;
+            document.body.appendChild(iFrame);
+          }
+        } else {
+          document.getElementById("pdfFrame").style.display = "none";
+          document.getElementById("fframe").style.display = "";
+          document.getElementById("fframe").contentWindow.handleFiles(target);
+        }
+      }
+    </script>
+  </body>
+</html>
